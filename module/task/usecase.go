@@ -69,6 +69,7 @@ func (u *UseCase) UpdateByID(ctx context.Context, id string, req *UpdateRequest)
 		ID:         id,
 		Message:    msg,
 		IsComplete: isComplete,
+		CreatedAt:  oldTask.CreatedAt,
 	}
 	err = u.repo.UpdateTask(ctx, task)
 	return task, err
